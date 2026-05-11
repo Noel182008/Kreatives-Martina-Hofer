@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kreatives Martina Hofer | Handgemachte Keramik</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #f8f1e8;
+      color: #2b211c;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(248, 241, 232, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #e6d7c8;
+    }
+
+    .navbar {
+      max-width: 1180px;
+      margin: auto;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -0.7px;
+      color: #3a2a22;
+    }
+
+    .logo span {
+      color: #b66a56;
+      font-family: Georgia, serif;
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #4c3b32;
+    }
+
+    .nav-links a {
+      transition: 0.25s;
+    }
+
+    .nav-links a:hover {
+      color: #b66a56;
+    }
+
+    .nav-button {
+      background: #3a2a22;
+      color: #fff;
+      padding: 11px 19px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      transition: 0.25s;
+    }
+
+    .nav-button:hover {
+      background: #b66a56;
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: auto;
+      padding: 88px 22px 68px;
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #ead8cc;
+      color: #965847;
+      padding: 9px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 800;
+      margin-bottom: 23px;
+    }
+
+    h1 {
+      font-size: clamp(42px, 6vw, 74px);
+      line-height: 1.02;
+      letter-spacing: -2.5px;
+      color: #2d201a;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #6f5c50;
+      max-width: 580px;
+      margin-bottom: 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 25px;
+      border-radius: 999px;
+      font-weight: 900;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: #3a2a22;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #b66a56;
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 2px solid #3a2a22;
+      color: #3a2a22;
+    }
+
+    .btn-outline:hover {
+      background: #3a2a22;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      max-width: 560px;
+    }
+
+    .stat {
+      background: #fffaf5;
+      border: 1px solid #eadbcc;
+      padding: 18px;
+      border-radius: 22px;
+      box-shadow: 0 12px 35px rgba(58, 42, 34, 0.06);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 22px;
+      color: #3a2a22;
+    }
+
+    .stat small {
+      color: #7a675d;
+      font-weight: 700;
+    }
+
+    .hero-visual {
+      min-height: 530px;
+      border-radius: 42px;
+      padding: 28px;
+      background: linear-gradient(145deg, #3a2a22, #a65d4d);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 28px 80px rgba(58, 42, 34, 0.25);
+    }
+
+    .hero-visual::before {
+      content: "";
+      position: absolute;
+      width: 310px;
+      height: 310px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.12);
+      right: -105px;
+      top: -90px;
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.09);
+      left: -50px;
+      bottom: -45px;
+    }
+
+    .visual-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .visual-content h2 {
+      font-size: 35px;
+      line-height: 1.12;
+      max-width: 390px;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .image-card {
+      background: rgba(255, 255, 255, 0.13);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 25px;
+      padding: 18px;
+      min-height: 155px;
+      backdrop-filter: blur(12px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .image-card.big {
+      grid-column: span 2;
+      min-height: 215px;
+    }
+
+    .image-card .circle {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #fff7f1 0%, #d39b8e 45%, #8b594c 100%);
+      top: 18px;
+      right: 20px;
+      opacity: 0.92;
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.55);
+    }
+
+    .image-card .bag {
+      position: absolute;
+      width: 92px;
+      height: 145px;
+      border-radius: 8px 8px 14px 14px;
+      background: linear-gradient(90deg, #b98b61, #e1bd8d, #9f714b);
+      top: 19px;
+      right: 34px;
+      box-shadow: inset 0 0 16px rgba(255,255,255,0.35);
+    }
+
+    .image-card strong {
+      font-size: 20px;
+      margin-bottom: 4px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .image-card p {
+      font-size: 14px;
+      color: #f4ddd5;
+      position: relative;
+      z-index: 2;
+    }
+
+    section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 76px 22px;
+    }
+
+    .section-head {
+      text-align: center;
+      max-width: 730px;
+      margin: 0 auto 46px;
+    }
+
+    .section-head span {
+      color: #b66a56;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .section-head h2 {
+      font-size: clamp(31px, 4vw, 48px);
+      line-height: 1.1;
+      letter-spacing: -1.2px;
+      margin-top: 10px;
+      margin-bottom: 14px;
+      color: #2d201a;
+    }
+
+    .section-head p {
+      color: #6f5c50;
+      font-size: 17px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .card {
+      background: #fffaf5;
+      border: 1px solid #eadbcc;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: 0 15px 45px rgba(58, 42, 34, 0.07);
+      transition: 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 70px rgba(58, 42, 34, 0.13);
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 20px;
+      background: #ead8cc;
+      color: #965847;
+      display: grid;
+      place-items: center;
+      font-size: 27px;
+      margin-bottom: 20px;
+    }
+
+    .card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+      color: #2d201a;
+    }
+
+    .card p {
+      color: #6f5c50;
+      font-size: 15px;
+    }
+
+    .split-section {
+      max-width: 1180px;
+      margin: 30px auto;
+      padding: 66px 48px;
+      border-radius: 42px;
+      background: #3a2a22;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 42px;
+      align-items: center;
+    }
+
+    .split-section h2 {
+      font-size: clamp(32px, 4vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+      margin-bottom: 18px;
+    }
+
+    .split-section p {
+      color: #ead8cc;
+      font-size: 17px;
+    }
+
+    .process-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .process-item {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 22px;
+      padding: 19px;
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .process-number {
+      width: 42px;
+      height: 42px;
+      flex: 0 0 42px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #3a2a22;
+      font-weight: 900;
+    }
+
+    .product-grid-section {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .product-card {
+      background: #fffaf5;
+      border-radius: 30px;
+      overflow: hidden;
+      border: 1px solid #eadbcc;
+      box-shadow: 0 15px 45px rgba(58, 42, 34, 0.07);
+      transition: 0.25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 70px rgba(58, 42, 34, 0.13);
+    }
+
+    .product-image {
+      height: 230px;
+      background: linear-gradient(145deg, #ead8cc, #fff7f1);
+      display: grid;
+      place-items: center;
+      font-size: 62px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ceramic-bowl {
+      width: 142px;
+      height: 142px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 45% 45%, #fffdf9 0%, #eacfc8 30%, #c86f61 62%, #775043 100%);
+      border: 10px solid #8c6e5b;
+      box-shadow: inset 0 0 25px rgba(255,255,255,0.85), 0 14px 28px rgba(58,42,34,0.2);
+    }
+
+    .ceramic-white {
+      width: 142px;
+      height: 142px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 42% 42%, #fff 0%, #f2f2ed 55%, #cfc8bd 100%);
+      border: 10px solid #9a8170;
+      box-shadow: inset 0 0 25px rgba(255,255,255,0.9), 0 14px 28px rgba(58,42,34,0.2);
+      position: relative;
+    }
+
+    .ceramic-white::after {
+      content: "";
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(182, 106, 86, 0.5);
+      left: 49px;
+      top: 49px;
+      filter: blur(2px);
+    }
+
+    .almond-bag {
+      width: 92px;
+      height: 160px;
+      border-radius: 8px 8px 16px 16px;
+      background: linear-gradient(90deg, #b98b61, #e1bd8d, #9f714b);
+      box-shadow: inset 0 0 18px rgba(255,255,255,0.35), 0 14px 28px rgba(58,42,34,0.2);
+      position: relative;
+    }
+
+    .almond-bag::after {
+      content: "Gebrannte Mandeln";
+      position: absolute;
+      width: 74px;
+      height: 74px;
+      border-radius: 50%;
+      background: #fffaf5;
+      color: #7a4f3e;
+      left: 9px;
+      top: 43px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 10px;
+      font-family: Georgia, serif;
+      padding: 8px;
+    }
+
+    .product-body {
+      padding: 26px;
+    }
+
+    .product-body small {
+      color: #b66a56;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-body h3 {
+      font-size: 23px;
+      margin: 8px 0 9px;
+      color: #2d201a;
+    }
+
+    .product-body p {
+      color: #6f5c50;
+      font-size: 15px;
+      margin-bottom: 18px;
+    }
+
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .price {
+      background: #f8f1e8;
+      color: #965847;
+      padding: 8px 13px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .mini-btn {
+      background: #3a2a22;
+      color: #fff;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .contact-box {
+      background: #fffaf5;
+      border-radius: 40px;
+      padding: 48px;
+      box-shadow: 0 20px 70px rgba(58, 42, 34, 0.1);
+      border: 1px solid #eadbcc;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 44px;
+    }
+
+    .contact-info h2 {
+      font-size: clamp(31px, 4vw, 46px);
+      line-height: 1.1;
+      margin-bottom: 17px;
+      color: #2d201a;
+    }
+
+    .contact-info p {
+      color: #6f5c50;
+      margin-bottom: 20px;
+    }
+
+    .contact-detail {
+      background: #f8f1e8;
+      padding: 18px;
+      border-radius: 22px;
+      margin-bottom: 13px;
+      color: #4c3b32;
+      font-weight: 700;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #dfcec0;
+      border-radius: 17px;
+      padding: 16px 17px;
+      background: #f8f1e8;
+      font-size: 15px;
+      outline: none;
+      transition: 0.25s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #b66a56;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 135px;
+      resize: vertical;
+    }
+
+    button {
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 34px 22px;
+      background: #3a2a22;
+      color: #fff;
+      text-align: center;
+    }
+
+    footer p {
+      color: #ead8cc;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .split-section,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .product-grid-section {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .navbar {
+        padding: 15px 18px;
+      }
+
+      .nav-button {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero-visual {
+        min-height: auto;
+        border-radius: 30px;
+      }
+
+      .image-grid,
+      .stats,
+      .cards,
+      .product-grid-section {
+        grid-template-columns: 1fr;
+      }
+
+      .image-card.big {
+        grid-column: span 1;
+      }
+
+      .split-section,
+      .contact-box {
+        padding: 32px 22px;
+        border-radius: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="#home" class="logo">Kreatives <span>Martina Hofer</span></a>
+      <ul class="nav-links">
+        <li><a href="#handwerk">Handwerk</a></li>
+        <li><a href="#prozess">Prozess</a></li>
+        <li><a href="#kollektion">Kollektion</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <a href="#kontakt" class="nav-button">Anfrage senden</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="badge">🏺 Handgemachte Keramik aus Leidenschaft</div>
+        <h1>Einzigartige Keramik mit Charakter.</h1>
+        <p>
+          Kreatives Martina Hofer steht für liebevoll gefertigte Keramikstücke, natürliche Formen und warme Farbtöne. Jedes Stück ist ein Unikat und bringt handgemachte Schönheit in den Alltag.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#kollektion" class="btn btn-primary">Kollektion ansehen</a>
+          <a href="#kontakt" class="btn btn-outline">Individuelle Anfrage</a>
+        </div>
+
+        <div class="stats">
+          <div class="stat">
+            <strong>100%</strong>
+            <small>Handarbeit</small>
+          </div>
+          <div class="stat">
+            <strong>Unikat</strong>
+            <small>Jedes Stück anders</small>
+          </div>
+          <div class="stat">
+            <strong>Lokal</strong>
+            <small>Mit Liebe gemacht</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-content">
+          <h2>Keramik, die man sieht, fühlt und gerne verschenkt.</h2>
+          <div class="image-grid">
+            <div class="image-card big">
+              <div class="circle"></div>
+              <strong>Handgeformte Schalen</strong>
+              <p>Warme Rottöne, natürliche Glasuren und organische Ränder.</p>
+            </div>
+            <div class="image-card">
+              <div class="circle"></div>
+              <strong>Unikate</strong>
+              <p>Jedes Stück entsteht einzeln von Hand.</p>
+            </div>
+            <div class="image-card">
+              <div class="bag"></div>
+              <strong>Geschenkideen</strong>
+              <p>Liebevoll verpackt für besondere Momente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="handwerk">
+      <div class="section-head">
+        <span>Handwerk</span>
+        <h2>Natürlich, kreativ und handgemacht</h2>
+        <p>Diese Webseite ist als moderne Vorlage aufgebaut. Bilder, Texte und Produkte kannst du später einfach ersetzen oder erweitern.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="icon">🏺</div>
+          <h3>Keramikschalen</h3>
+          <p>Platzhalter für handgemachte Schalen mit individuellen Formen, Glasuren und Farbverläufen.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎨</div>
+          <h3>Eigene Glasuren</h3>
+          <p>Platzhalter für kreative Oberflächen, natürliche Strukturen und warme Farbtöne.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">🎁</div>
+          <h3>Geschenke</h3>
+          <p>Platzhalter für kleine Geschenkideen, saisonale Sets oder liebevoll verpackte Produkte.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="split-section" id="prozess">
+      <div>
+        <h2>Vom Ton bis zum fertigen Lieblingsstück.</h2>
+        <p>
+          Handgemachte Keramik braucht Geduld, Gefühl und viele kleine Schritte. Genau dadurch entsteht der besondere Charakter jedes einzelnen Stücks.
+        </p>
+      </div>
+
+      <div class="process-list">
+        <div class="process-item">
+          <div class="process-number">1</div>
+          <div><strong>Formen</strong><br />Der Ton wird von Hand geformt und sorgfältig vorbereitet.</div>
+        </div>
+        <div class="process-item">
+          <div class="process-number">2</div>
+          <div><strong>Trocknen</strong><br />Das Werkstück ruht, bis es bereit für den ersten Brand ist.</div>
+        </div>
+        <div class="process-item">
+          <div class="process-number">3</div>
+          <div><strong>Glasieren</strong><br />Farben, Muster und Oberflächen werden individuell aufgetragen.</div>
+        </div>
+        <div class="process-item">
+          <div class="process-number">4</div>
+          <div><strong>Brennen</strong><br />Im Ofen erhält das Stück seine endgültige Stärke und Ausstrahlung.</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="kollektion">
+      <div class="section-head">
+        <span>Kollektion</span>
+        <h2>Beispielfelder für Produkte</h2>
+        <p>Hier kannst du später echte Produkte, Preise, Fotos und Beschreibungen einfügen.</p>
+      </div>
+
+      <div class="product-grid-section">
+        <article class="product-card">
+          <div class="product-image">
+            <div class="ceramic-bowl"></div>
+          </div>
+          <div class="product-body">
+            <small>Keramik</small>
+            <h3>Rote Keramikschale</h3>
+            <p>Beispieltext für eine handgefertigte Schale mit warmer Glasur.</p>
+            <div class="price-row">
+              <span class="price">Preisfeld</span>
+              <a href="#kontakt" class="mini-btn">Anfragen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <div class="ceramic-white"></div>
+          </div>
+          <div class="product-body">
+            <small>Unikat</small>
+            <h3>Helle Keramikschale</h3>
+            <p>Beispieltext für eine helle Schale mit dezentem Farbdetail.</p>
+            <div class="price-row">
+              <span class="price">Preisfeld</span>
+              <a href="#kontakt" class="mini-btn">Anfragen</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-image">
+            <div class="almond-bag"></div>
+          </div>
+          <div class="product-body">
+            <small>Geschenk</small>
+            <h3>Geschenkverpackung</h3>
+            <p>Beispieltext für kleine Geschenksets oder saisonale Produkte.</p>
+            <div class="price-row">
+              <span class="price">Preisfeld</span>
+              <a href="#kontakt" class="mini-btn">Anfragen</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="kontakt">
+      <div class="contact-box">
+        <div class="contact-info">
+          <h2>Interesse an einem handgemachten Stück?</h2>
+          <p>
+            Schreib eine Nachricht für individuelle Wünsche, Bestellungen oder Fragen zu verfügbaren Keramikstücken. Die Angaben unten sind Platzhalter und können angepasst werden.
+          </p>
+          <div class="contact-detail">📍 Atelier / Standort: Musterort</div>
+          <div class="contact-detail">✉️ info@kreatives-martina-hofer.ch</div>
+          <div class="contact-detail">📞 +41 00 000 00 00</div>
+        </div>
+
+        <form>
+          <input type="text" placeholder="Vorname und Name" required />
+          <input type="email" placeholder="E-Mail-Adresse" required />
+          <select required>
+            <option value="">Wofür interessierst du dich?</option>
+            <option>Keramikschale</option>
+            <option>Individuelle Bestellung</option>
+            <option>Geschenkidee</option>
+            <option>Allgemeine Anfrage</option>
+          </select>
+          <textarea placeholder="Deine Nachricht"></textarea>
+          <button type="submit" class="btn btn-primary">Nachricht senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Kreatives Martina Hofer. Alle Rechte vorbehalten.</p>
+  </footer>
+</body>
+</html>
